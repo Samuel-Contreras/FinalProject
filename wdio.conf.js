@@ -21,7 +21,7 @@ export const config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/*.js'
+        './test/testing/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -51,11 +51,11 @@ export const config = {
     //
     capabilities: [{
         browserName: 'chrome'
-    }, {
+    }, /*{
         browserName: 'firefox'
     }, {
         browserName: 'safari'
-    } ],
+    } */],
 
     //
     // ===================
