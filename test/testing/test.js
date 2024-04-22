@@ -16,7 +16,13 @@ describe('changing zipcode', () => {
         await ChangingZip.zip("84097")
         await expect(FlashZip.homeFlash).toBeExisting()
         await expect(FlashZip.homeFlash).toHaveTextContaining
-       ('skip to main content')
+        ('skip to main content')
+        
+       await ChangingZip.zip("23-0-")
+       await expect(FlashZip.fakeZipFLash).toBeExisting()
+       await expect(FlashZip.fakeZipFLash).toHaveTextContaining
+       ('ZIP code must be five or nine digits.')
+
     })
 
 })
