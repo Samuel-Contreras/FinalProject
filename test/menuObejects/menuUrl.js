@@ -1,9 +1,9 @@
 import { browser } from '@wdio/globals'
 
 
-export default class CHttps {
+export default class MHttps {
     
-    controllerUrl (path) {
+    menuUrl (path) {
         return browser.url(`https://www.target.com/`)
     }
 }
