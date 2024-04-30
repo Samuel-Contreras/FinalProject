@@ -1,4 +1,6 @@
 import { $ } from '@wdio/globals'
+import { expect } from '@wdio/globals'
+import CartFlash from './cartFlash.js'
 import CartHttps from './cartUrl.js'
 
 class ShopCart extends CartHttps {
@@ -55,6 +57,14 @@ class ShopCart extends CartHttps {
         return $('//a[text()="View cart & check out"]')
     }
 
+    get closeSameDayBtn () {
+        return $('#__next')
+    }
+
+    get shipping() {
+        return $('/html/body/div[1]/div[2]/div[4]/div/div[1]/div[1]/div[2]/div/div/div[3]/div[2]/div/div[1]/div/div[2]/div/div/fieldset/div[1]/input')
+    }
+
     get removeItemBtn () {
         return $('/html/body/div[1]/div[2]/div[4]/div/div[1]/div[1]/div[2]/div/div/div[3]/div[3]/button')
     }
@@ -77,7 +87,11 @@ class ShopCart extends CartHttps {
         await this.maxQtyBtn.click()
         await this.addToCart.click();
         await this.checkoutBtn.click();
+        await this.closeSameDayBtn.click();
+        await this.shipping.click();
         await this.removeItemBtn.click();
+        await expect(CartFlash.emptyCartFlash).toBeExisting()
+        await expect(CartFlash.emptyCartFlash).toHaveTextContaining('Your cart is empty')
     }
 
     cartUrl () {

@@ -1,4 +1,6 @@
 import { $ } from '@wdio/globals'
+import { expect } from '@wdio/globals'
+import MenuAlert from './menuFlash.js'
 import MHttps from './menuUrl.js';
 
 
@@ -28,6 +30,8 @@ class Menu extends MHttps {
         await this.TCDeals.click();
         await this.deals.click();
         await this.clearance.click();
+        await expect(MenuAlert.finalFlash).toBeExisting()
+        await expect(MenuAlert.finalFlash).toHaveTextContaining('Clearance')
     }
 
     
