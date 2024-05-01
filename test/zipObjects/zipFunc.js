@@ -20,26 +20,25 @@ class ChangingZip extends Https {
     }
 
 
-    async posiZip (zipCode) {
+    async posiZip (zipCode, textVer) {
         await this.changeZip.click();
         await this.zipInput.click();
         await browser.keys([Key.Backspace] + [Key.Backspace] + [Key.Backspace] + [Key.Backspace] + [Key.Backspace])
         await this.zipInput.setValue(zipCode);
         await this.saveZipBtn.click();
         await expect(FlashZip.homeFlash).toBeExisting()
-        await expect(FlashZip.homeFlash).toHaveTextContaining
-        ('skip to main content')
+        await expect(FlashZip.homeFlash).toHaveTextContaining(textVer)
+        
     }
 
-    async negZip (zipCode) {
+    async negZip (zipCode,textVer) {
         await this.changeZip.click();
         await this.zipInput.click();
         await browser.keys([Key.Backspace] + [Key.Backspace] + [Key.Backspace] + [Key.Backspace] + [Key.Backspace])
         await this.zipInput.setValue(zipCode);
         await this.saveZipBtn.click();
         await expect(FlashZip.fakeZipFLash).toBeExisting()
-       await expect(FlashZip.fakeZipFLash).toHaveTextContaining
-       ('ZIP code must be five or nine digits.')
+       await expect(FlashZip.fakeZipFLash).toHaveTextContaining(textVer)
     }
 
     6

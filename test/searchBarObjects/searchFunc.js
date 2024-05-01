@@ -15,36 +15,36 @@ class SearchField extends Https {
         return $('.styles__SearchButton-sc-wnzihy-3')
     }
 
-    async searchingProdPos (item) {
+    async searchingProdPos (item, textVer) {
         await this.searchInput.clearValue();
         await this.searchInput.setValue(item);
         await this.searchBtn.click();
         await expect(FlashSearch.searchBarFlash).toBeExisting()
-        await expect(FlashSearch.searchBarFlash).toHaveTextContaining('for “razer mouse”')
+        await expect(FlashSearch.searchBarFlash).toHaveTextContaining(textVer)
     }
 
-    async searchingProdNeg (item) {
+    async searchingProdNeg (item, textVer) {
         await this.searchInput.clearValue();
         await this.searchInput.setValue(item);
         await this.searchBtn.click();
         await expect(FlashSearch.misspelled).toBeExisting()
-        await expect(FlashSearch.misspelled).toHaveTextContaining('for “mens demin”')
+        await expect(FlashSearch.misspelled).toHaveTextContaining(textVer)
     }
 
-    async searchingProdFake (item) {
+    async searchingProdFake (item, textVer) {
         await this.searchInput.clearValue();
         await this.searchInput.setValue(item);
         await this.searchBtn.click();
         await expect(FlashSearch.negBarFlash).toBeExisting()
-        await expect(FlashSearch.negBarFlash).toHaveTextContaining("We couldn’t find a match for your search.")
+        await expect(FlashSearch.negBarFlash).toHaveTextContaining(textVer)
     }
     
-    async searchingProdLimit (item) {
+    async searchingProdLimit (item, textVer) {
         await this.searchInput.clearValue();
         await this.searchInput.setValue(item);
         await this.searchBtn.click();
         await expect(FlashSearch.negBarFlash).toBeExisting()
-        await expect(FlashSearch.negBarFlash).toHaveTextContaining("We couldn’t find a match for your search.")
+        await expect(FlashSearch.negBarFlash).toHaveTextContaining(textVer)
     }
 
     

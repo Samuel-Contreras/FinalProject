@@ -22,11 +22,11 @@ class ShopCart extends CartHttps {
     }
 
     get megaXl () {
-        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[1]/div[4]/div[1]/div[2]/div/div[1]/a')
+        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[4]/div[1]/div[2]/div/div[1]/a')
     }
 
     get addToCart () {
-        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[2]/div/div/div[2]/div[2]/div/button')
+        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[5]/div/div/div[2]/div[2]/div/button')
     }
 
     get closeBtn () {
@@ -34,19 +34,19 @@ class ShopCart extends CartHttps {
     }
 
     get deliveryBtn () {
-        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[2]/div/div/div[1]/button[2]')
+        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[5]/div/div/div[1]/button[2]')
     }
 
     get mega () {
-        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[1]/div[4]/div[1]/div[2]/div/div[2]/a')
+        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[4]/div[1]/div[2]/div/div[2]/a')
     }
 
     get noStockBtn () {
-        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[2]/div/div/div[2]/div[2]/div/button')
+        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[5]/div/div/div[2]/div[2]/div/button')
     }
 
     get qtyBtn () {
-        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[2]/div/div/div[2]/div[2]/div/div/div/button/span[2]')
+        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[5]/div/div/div[2]/div[2]/div/div/div/button')
     }
 
     get maxQtyBtn () {
@@ -70,7 +70,7 @@ class ShopCart extends CartHttps {
     }
 
 
-    async cartSearch (item) {
+    async cartSearch (item, itemVer) {
         await this.searchingInput.clearValue();
         await this.searchingInput.setValue(item);
         await this.searchingBtn.click();
@@ -91,7 +91,7 @@ class ShopCart extends CartHttps {
         await this.shipping.click();
         await this.removeItemBtn.click();
         await expect(CartFlash.emptyCartFlash).toBeExisting()
-        await expect(CartFlash.emptyCartFlash).toHaveTextContaining('Your cart is empty')
+        await expect(CartFlash.emptyCartFlash).toHaveTextContaining(itemVer)
     }
 
     cartUrl () {

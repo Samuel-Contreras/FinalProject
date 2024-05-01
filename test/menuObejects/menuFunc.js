@@ -22,7 +22,7 @@ class Menu extends MHttps {
         return $('/html/body/div[6]/div/div/ul/li[3]/a')
     }
 
-    async menuDrop () {
+    async menuDrop (itemVer) {
         await browser.setWindowSize(1500, 5000);
         await this.deals.click();
         await this.topDeals.click();
@@ -31,7 +31,7 @@ class Menu extends MHttps {
         await this.deals.click();
         await this.clearance.click();
         await expect(MenuAlert.finalFlash).toBeExisting()
-        await expect(MenuAlert.finalFlash).toHaveTextContaining('Clearance')
+        await expect(MenuAlert.finalFlash).toHaveTextContaining(itemVer)
     }
 
     

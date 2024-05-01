@@ -10,9 +10,9 @@ describe('changing zipcode', () => {
     it('zipcode should be changed to local location', async () => {
         await ChangingZip.baseUrl()
 
-        await ChangingZip.posiZip("29717")
-        await ChangingZip.posiZip("84097")
-        await ChangingZip.negZip("23$-0")
+        await ChangingZip.posiZip("29717", 'skip to main content')
+        await ChangingZip.posiZip("84097", 'skip to main content')
+        await ChangingZip.negZip("23$-0", 'ZIP code must be five or nine digits.')
         
     })
 
@@ -22,10 +22,11 @@ describe('changing zipcode', () => {
     it('using search bar for positive/negative test', async () => {
         await SearchField.searchUrl()
         
-        await SearchField.searchingProdPos('razer mouse')
-        await SearchField.searchingProdNeg('mens demin')
-        await SearchField.searchingProdFake('asdfjklasasdjfkljadlkfjjdflk')
-        await SearchField.searchingProdLimit('ababababababababababababababababbaababababababababababababbababababbabababababababababbabababbababababababbababababababababababbababababbababababbababababbabababababababbaba')
+        await SearchField.searchingProdPos('razer mouse', 'for “razer mouse”')
+        await SearchField.searchingProdNeg('mens demin', 'for “mens demin”')
+        await SearchField.searchingProdFake('asdfjklasasdjfkljadlkfjjdflk', "We couldn’t find a match for your search.")
+        await SearchField.searchingProdLimit
+        ('ababababababababababababababababbaababababababababababababbababababbabababababababababbabababbababababababbababababababababababbababababbababababbababababbabababababababbaba', "We couldn’t find a match for your search.")
 
     })
 
@@ -35,7 +36,7 @@ describe('clicking every dropdown in the New & Featured menu', () => {
     it('using nav bar to enter every link', async () => {
         await Menu.menuUrl()
         
-        await Menu.menuDrop()
+        await Menu.menuDrop('Clearance')
         
     })
 
@@ -46,7 +47,7 @@ describe('checking cart to add instock, out of stock and cart limits ', () => {
     it('adds item at max quantity, enters cart, changes shipping options then deletes item', async () => {
         await ShopCart.cartUrl()
         
-        await ShopCart.cartSearch('toilet paper')
+        await ShopCart.cartSearch('toilet paper', 'Your cart is empty')
 
     })
 
