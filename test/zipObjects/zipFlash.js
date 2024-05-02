@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import Https from './homeUrl.js';
+import Https from '../mainUrl.js';
 
 
 class FlashZip extends Https {

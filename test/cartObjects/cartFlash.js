@@ -1,7 +1,7 @@
 import { $ } from '@wdio/globals'
-import CartHttps from './cartUrl.js'
+import Https from '../mainUrl.js';
 
-class CartFlash extends CartHttps {
+class CartFlash extends Https {
 
     get emptyCartFlash () {
         return $('/html/body/div[1]/div[2]/div[4]/div[1]/div/div/div[2]/h1')

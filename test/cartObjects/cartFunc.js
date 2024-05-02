@@ -1,12 +1,12 @@
 import { $ } from '@wdio/globals'
 import { expect } from '@wdio/globals'
 import CartFlash from './cartFlash.js'
-import CartHttps from './cartUrl.js'
+import Https from '../mainUrl.js';
 
-class ShopCart extends CartHttps {
+class ShopCart extends Https {
 
     get cartBtn () {
-        return $('/html/body/div[1]/div[2]/div[2]/div/nav/a[5]')
+        return $('/div[@class="styles__Container-sc-8s5b77-0 eWqVnX l-container-fixed"]/nav/a[@data-test="@web/CartLink"]')
     }
     
     get searchingInput () {
@@ -22,23 +22,23 @@ class ShopCart extends CartHttps {
     }
 
     get megaXl () {
-        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[4]/div[1]/div[2]/div/div[1]/a')
+        return $('//div[@class="children"]/div[@class="styles__ButtonWrapper-sc-519sqw-1 clSiPU"]/a[@value="Mega XL"]')
     }
 
     get addToCart () {
-        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[5]/div/div/div[2]/div[2]/div/button')
+        return $('//div[@class="styles__ThreeUpButtonWrapper-sc-11rka0i-0 gfFifD"]/div[@style="display: flex;"]/button[@type="button"]')
     }
 
-    get closeBtn () {
+    /*get closeBtn () {
         return $('/html/body/div[60]/div/div/div[2]/div[3]/button')
-    }
+    }*/
 
     get deliveryBtn () {
-        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[5]/div/div/div[1]/button[2]')
+        return $('//div[@class="styles__StyledFulfillmentOptions-sc-mtsyds-0 ybqLe"]/button[@data-test="fulfillment-cell-delivery"]')
     }
 
     get mega () {
-        return $('/html/body/div[1]/div[2]/main/div/div[1]/div[3]/div[2]/div/div[4]/div[1]/div[2]/div/div[2]/a')
+        return $('//div[@class="children"]/div[@class="styles__ButtonWrapper-sc-519sqw-1 clSiPU"]/a[@value="Mega"]')
     }
 
     get noStockBtn () {
@@ -62,11 +62,11 @@ class ShopCart extends CartHttps {
     }
 
     get shipping() {
-        return $('/html/body/div[1]/div[2]/div[4]/div/div[1]/div[1]/div[2]/div/div/div[3]/div[2]/div/div[1]/div/div[2]/div/div/fieldset/div[1]/input')
+        return $('//div[@data-test="ShippingFulfillment"]/input[@type="radio"]')
     }
 
     get removeItemBtn () {
-        return $('/html/body/div[1]/div[2]/div[4]/div/div[1]/div[1]/div[2]/div/div/div[3]/div[3]/button')
+        return $('//div[@aria-label="cart item ready to fulfill"]/div/button[@data-test="cartItem-deleteBtn"]')
     }
 
 
@@ -94,8 +94,8 @@ class ShopCart extends CartHttps {
         await expect(CartFlash.emptyCartFlash).toHaveTextContaining(itemVer)
     }
 
-    cartUrl () {
-        return super.cartUrl();
+    baseUrl () {
+        return super.baseUrl();
      }
 
 }

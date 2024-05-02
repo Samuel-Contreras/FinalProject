@@ -1,6 +1,6 @@
 import { $ } from '@wdio/globals'
 import { expect } from '@wdio/globals'
-import Https from './homeUrl.js';
+import Https from '../mainUrl.js';
 import FlashZip from './zipFlash.js'
 import { Key } from 'webdriverio';
 
@@ -16,7 +16,7 @@ class ChangingZip extends Https {
     }
     
     get saveZipBtn () {
-        return $('/html/body/div[4]/div/div/div[2]/div/div[2]/button')
+        return $('//div[@class="h-border-t h-padding-a-default"]/button')
     }
 
 
@@ -41,7 +41,7 @@ class ChangingZip extends Https {
        await expect(FlashZip.fakeZipFLash).toHaveTextContaining(textVer)
     }
 
-    6
+    
     baseUrl () {
        return super.baseUrl();
     }

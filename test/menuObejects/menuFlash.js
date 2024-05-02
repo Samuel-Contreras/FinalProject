@@ -1,8 +1,8 @@
 import { $ } from '@wdio/globals'
-import MHttps from './menuUrl.js';
+import Https from '../mainUrl.js';
 
 
-class MenuAlert extends MHttps {
+class MenuAlert extends Https {
 
     get finalFlash () {
         return $('/html/body/div[1]/div[2]/main/div/div/div/div[1]/div/div[1]/h1')

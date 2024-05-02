@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import Https from './searchBarUrl.js';
+import Https from '../mainUrl.js';
 
 
 class FlashSearch extends Https {

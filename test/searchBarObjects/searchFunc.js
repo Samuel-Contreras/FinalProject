@@ -1,7 +1,7 @@
 import { $ } from '@wdio/globals'
 import { expect } from '@wdio/globals'
 import FlashSearch from './searchFlash.js'
-import Https from './searchBarUrl.js';
+import Https from '../mainUrl.js';
 
 
 
@@ -48,8 +48,8 @@ class SearchField extends Https {
     }
 
     
-    searchUrl () {
-       return super.searchUrl();
+    baseUrl () {
+       return super.baseUrl();
     }
 }
 

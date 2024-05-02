@@ -1,17 +1,17 @@
 import { $ } from '@wdio/globals'
 import { expect } from '@wdio/globals'
 import MenuAlert from './menuFlash.js'
-import MHttps from './menuUrl.js';
+import Https from '../mainUrl.js';
 
 
-class Menu extends MHttps {
+class Menu extends Https {
 
     get deals () {
         return $('//*[@id="headerPrimary"]/div[3]/a')
     }
 
     get topDeals () {
-        return $('/html/body/div[6]/div/div/ul/li[1]/a')
+        return $('//div[@role="dialog"]/ul/li/a[@data-test="deals-topDeals"]')
     }
     
     get TCDeals () {
@@ -35,8 +35,8 @@ class Menu extends MHttps {
     }
 
     
-    menuUrl () {
-       return super.menuUrl();
+    baseUrl () {
+       return super.baseUrl();
     }
 }
 

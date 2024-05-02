@@ -1,9 +1,10 @@
 import { browser } from '@wdio/globals'
 
 
-export default class MHttps {
+export default class Https {
     
-    menuUrl () {
+    baseUrl () {
         return browser.url(`https://www.target.com/`)
     }
 }
+
